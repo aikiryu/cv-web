@@ -1,24 +1,39 @@
-import React, { Component } from "react";
-import "../styles/header.css";
+import React, { Component, Fragment } from "react";
+import Circle from "./circle";
+import "../styles/header.scss";
 
 class Header extends Component {
+  state = {
+    opacity: 1
+  };
+  fadeOutCircle = () => {
+    this.setState({
+      opacity: 0.3
+    });
+  };
+
+  fadeInCircle = () => {
+    this.setState({
+      opacity: 1
+    });
+  };
   render() {
     return (
-      <header>
-        <h1>Logo</h1>
-        <ul>
-          <li>PROFILE</li>
-          <li>SKILL</li>
-          <li>WORK</li>
-          <li>ETC</li>
-        </ul>
+      <Fragment>
+        <Circle opacity={this.state.opacity} />
 
-        <button className="menuBtn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </header>
+        <header onMouseOver={this.fadeOutCircle} onMouseOut={this.fadeInCircle}>
+          <h1>ANONYMENT</h1>
+          <ul className="gnb">
+            <li>PROFILE</li>
+            <li>WORKS</li>
+            <li>PORTFOLIO</li>
+            <li>BLOG</li>
+            <li>ETC</li>
+          </ul>
+          <hr id="line"></hr>
+        </header>
+      </Fragment>
     );
   }
 }

@@ -1,16 +1,19 @@
-import React, { Fragment } from "react";
-import "./styles/App.css";
-import "./styles/reset.css";
+import React, { Component } from "react";
+import "./styles/App.scss";
+import "./styles/reset.scss";
 import Header from "./components/header";
 import MainBanner from "./components/mainBanner";
 
-function App() {
-  return (
-    <Fragment>
-      <Header />
-      <MainBanner />
-    </Fragment>
-  ); //return
-} //app
-
+class App extends Component {
+  render() {
+    return (
+      <div id="wrap">
+        <div className="innerWrapper">
+          <Header />
+          <MainBanner />
+        </div>
+      </div>
+    );
+  }
+}
 export default App;
